@@ -20,10 +20,54 @@ st.write("Ask me anything, and I'll answer with memes and Gen Z wisdom!")
 # Sidebar for user preferences
 with st.sidebar:
     st.header("Preferences")
-    favorite_memes = st.multiselect("Favorite Memes", ["Dog Memes", "Cat Memes", "Relatable Memes", "Pop Culture"])
-    favorite_topics = st.multiselect("Favorite Topics", ["Memes", "Pop Culture", "Trends", "Humor"])
+
+    # Theme Selector
+    theme = st.selectbox("Theme", ["Light", "Dark"])
+    if theme == "Dark":
+        st.markdown(
+            """
+            <style>
+            .stApp {
+                background-color: #1E1E1E;
+                color: #FFFFFF;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Favorite Memes
+    st.subheader("Favorite Memes")
+    favorite_memes = st.multiselect(
+        "Choose your favorite memes",
+        ["Dog Memes", "Cat Memes", "Relatable Memes", "Tech Memes", "Gaming Memes"]
+    )
+
+    # Favorite Topics
+    st.subheader("Favorite Topics")
+    favorite_topics = st.multiselect(
+        "Choose your favorite topics",
+        ["Memes", "Pop Culture", "Trends", "Humor", "Tech", "Gaming"]
+    )
+
+    # Trend Notifications
+    st.subheader("Notifications")
+    enable_notifications = st.checkbox("Notify me about trending memes")
+
+    # User Profile
+    st.subheader("Profile")
+    user_name = st.text_input("Enter your name")
+    profile_pic = st.file_uploader("Upload a profile picture", type=["jpg", "png"])
+
+    # Feedback Button
+    st.subheader("Feedback")
+    if st.button("Submit Feedback"):
+        st.success("Thank you for your feedback!")
+
+    # Save Preferences
     if st.button("Save Preferences"):
         update_preferences(favorite_memes, favorite_topics)
+        st.success("Preferences saved!")
 
 # Initialize chat session
 if "chat_history" not in st.session_state:
