@@ -1,46 +1,42 @@
-import os
 import praw
 import requests
-import wikipedia
+import os
 from dotenv import load_dotenv
+import google.generativeai as genai
+from typing import List, Dict, Any, Optional
 
-# Load environment variables
 load_dotenv()
 
-# Reddit API setup
-reddit = praw.Reddit(
-    client_id=os.getenv("REDDIT_CLIENT_ID"),
-    client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
-    user_agent="mememind"
-)
+def fetch_reddit_memes(limit: int = 3) -> List[Dict[str, Any]]:
+   reddit = praw.Reddit(
+       client_id=os.getenv("REDDIT_CLIENT_ID"),
+       client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
+       user_agent="mememind"
+   )
+   
+   memes = []
+   for post in reddit.subreddit('memes').hot(limit=limit):
+       memes.append({
+           'title': post.title,
+           'url': post.url,
+           'score': post.score
+       })
+   return memes
 
-# Giphy API setup
-GIPHY_API_KEY = os.getenv("GIPHY_API_KEY")
+def fetch_giphy_gif(query: str) -> Optional[str]:
+   api_key = os.getenv("GIPHY_API_KEY")
+   url = f"https://api.giphy.com/v1/gifs/search?api_key={api_key}&q={query}&limit=1"
+   response = requests.get(url)
+   data = response.json()
+   return data['data'][0]['images']['original']['url'] if data.get('data') else None
 
-def fetch_reddit_memes(subreddit="memes", limit=5):
-    """Fetch trending memes from Reddit."""
-    memes = []
-    for submission in reddit.subreddit(subreddit).hot(limit=limit):
-        memes.append({
-            "title": submission.title,
-            "url": submission.url,
-            "score": submission.score
-        })
-    return memes
+def fetch_wikipedia_summary(query: str) -> Optional[str]:
+   # Placeholder for Wikipedia integration
+   return None
 
-def fetch_giphy_gif(query):
-    """Fetch a relevant GIF from Giphy."""
-    url = f"https://api.giphy.com/v1/gifs/search?api_key={GIPHY_API_KEY}&q={query}&limit=1"
-    response = requests.get(url).json()
-    if response["data"]:
-        return response["data"][0]["images"]["original"]["url"]
-    return None
-
-def fetch_wikipedia_summary(query):
-    """Fetch a summary from Wikipedia."""
-    try:
-        return wikipedia.summary(query, sentences=2)
-    except wikipedia.exceptions.DisambiguationError as e:
-        return wikipedia.summary(e.options[0], sentences=2)
-    except wikipedia.exceptions.PageError:
-        return None
+def generate_response(query: str, context: str = "") -> str:
+   genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+   model = genai.GenerativeModel('gemini-pro')
+   prompt = f"Context: {context}\nQuery: {query}" if context else query
+   response = model.generate_content(prompt)
+   return response.text
