@@ -55,10 +55,9 @@ with st.sidebar:
     st.subheader("Notifications")
     enable_notifications = st.checkbox("Notify me about trending memes")
 
-    # User Profile
+    # User Name
     st.subheader("Profile")
     user_name = st.text_input("Enter your name")
-    profile_pic = st.file_uploader("Upload a profile picture", type=["jpg", "png"])
 
     # Save Preferences
     if st.button("Save Preferences"):
@@ -66,11 +65,10 @@ with st.sidebar:
             favorite_memes=favorite_memes,
             favorite_topics=favorite_topics,
             enable_notifications=enable_notifications,
-            user_name=user_name,
-            profile_pic=profile_pic
+            user_name=user_name
         )
         st.success("Preferences saved!")
-
+        
 # Initialize chat session
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = initialize_chat_session()
