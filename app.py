@@ -50,7 +50,12 @@ if user_query := st.chat_input("What's on your mind?"):
     wiki_summary = fetch_wikipedia_summary(user_query)
 
     # Step 2: Generate response using Gemini
-    context = get_chat_context(st.session_state.chat_history)
+    context = (
+        "You are MemeMind, a friendly and relatable chatbot that uses memes and humor to make conversations fun. "
+        "Keep your tone conversational, empathetic, and lighthearted. Avoid over-the-top enthusiasm or dark humor.\n\n"
+        "Context:\n"
+    )
+    context += get_chat_context(st.session_state.chat_history)
     if wiki_summary:
         context += f"\n\nWikipedia: {wiki_summary}"
     response = generate_response(user_query, context)
