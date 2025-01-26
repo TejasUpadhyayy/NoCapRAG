@@ -146,7 +146,7 @@ header {
 if "trend_predictor" not in st.session_state:
    st.session_state.trend_predictor = TrendPredictor()
 
-st.title("NoCapFRFR: The GenZGPT")
+st.title("NoCap RAG")
 st.write("Ask me anything, and I'll answer with memes and Gen Z wisdom!")
 
 with st.sidebar:
