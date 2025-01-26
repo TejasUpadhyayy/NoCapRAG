@@ -18,6 +18,7 @@ st.title("MemeMind: The Real-Time Meme Oracle 🧠🎭")
 st.write("Ask me anything, and I'll answer with memes and Gen Z wisdom!")
 
 # Sidebar for user preferences
+# Sidebar for user preferences
 with st.sidebar:
     st.header("Preferences")
 
@@ -59,14 +60,15 @@ with st.sidebar:
     user_name = st.text_input("Enter your name")
     profile_pic = st.file_uploader("Upload a profile picture", type=["jpg", "png"])
 
-    # Feedback Button
-    st.subheader("Feedback")
-    if st.button("Submit Feedback"):
-        st.success("Thank you for your feedback!")
-
     # Save Preferences
     if st.button("Save Preferences"):
-        update_preferences(favorite_memes, favorite_topics)
+        update_preferences(
+            favorite_memes=favorite_memes,
+            favorite_topics=favorite_topics,
+            enable_notifications=enable_notifications,
+            user_name=user_name,
+            profile_pic=profile_pic
+        )
         st.success("Preferences saved!")
 
 # Initialize chat session
