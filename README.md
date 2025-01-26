@@ -1,173 +1,168 @@
-# NoCap RAG: Real-Time Meme and Pop Culture Chatbot
+# NoCap RAG: Advanced Retrieval-Augmented Generation System
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Gemini](https://img.shields.io/badge/Google%20Gemini-4285F4?style=flat&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
-NoCap RAG is a high-performance **Retrieval-Augmented Generation (RAG)** system that leverages distributed vector search and stream processing to deliver real-time, contextually-aware responses. Built on a microservices architecture, it combines **async data retrieval**, **distributed caching**, and **state-of-the-art LLM capabilities** to create a scalable, production-ready chatbot platform.
+## System Architecture Overview
 
-## Technical Stack
+NoCap RAG implements a sophisticated Retrieval-Augmented Generation (RAG) architecture optimized for real-time content synthesis. The system leverages advanced information retrieval techniques coupled with state-of-the-art language modeling to deliver contextually-aware responses.
 
-- **Frontend**: Streamlit with WebSocket support for real-time updates
-- **Backend**: FastAPI for async API handling
-- **Caching**: Redis for session management and response caching
-- **Vector Store**: Qdrant for high-dimensional similarity search
-- **Processing**: Apache Kafka for event streaming
-- **Deployment**: Docker + Kubernetes for orchestration
-- **Monitoring**: Prometheus + Grafana for metrics
+### Theoretical Foundation
 
-## Architecture
+The system is built on three fundamental theoretical pillars:
 
-The system implements a modern microservices architecture with four distinct layers:
+1. **Information Retrieval Theory**
+   - Utilizes probabilistic retrieval models for content selection
+   - Implements semantic search across heterogeneous data sources
+   - Employs dynamic relevance scoring mechanisms
 
-### 1. Data Retrieval Layer
-- **Async Data Fetching**: Concurrent API calls using `aiohttp`
-- **Rate Limiting**: Token bucket algorithm with Redis backend
-- **Circuit Breaking**: Hystrix-style failure protection
-- **Data Sources**:
-  ```python
-  SOURCES = {
-      'reddit': ('praw', 'v7.7.0', 'Trending memes'),
-      'giphy': ('giphy-client', 'v1.0.0', 'GIF content'),
-      'wikipedia': ('wikipedia-api', 'v1.8.0', 'Knowledge base')
-  }
-  ```
+2. **Context Augmentation Framework**
+   - Hierarchical context integration methodology
+   - Multi-modal information fusion algorithms
+   - Temporal-aware context window optimization
 
-### 2. Vector Processing Layer
-- **Embedding Model**: Google Gemini embeddings (768d)
-- **Vector Store**: Qdrant with HNSW index
-- **Similarity Metrics**: Cosine similarity with dynamic thresholding
-- **Index Configuration**:
-  ```python
-  INDEX_CONFIG = {
-      'dim': 768,
-      'metric': 'cosine',
-      'ef_construction': 128,
-      'M': 16
-  }
-  ```
+3. **Generation Paradigm**
+   - Neural language model integration with retrieval mechanisms
+   - Context-conditioned response generation
+   - Adaptive temperature sampling strategies
 
-### 3. Context Augmentation Layer
-- **Ranking Algorithm**: LambdaMART with custom features
-- **Context Window**: Dynamic sizing (1K-8K tokens)
-- **Feature Engineering**:
-  ```python
-  FEATURES = [
-      'semantic_similarity',
-      'temporal_relevance',
-      'engagement_metrics',
-      'source_authority'
-  ]
-  ```
+## Core System Components
 
-### 4. Generation Layer
-- **Model**: Google Gemini Pro
-- **Prompt Engineering**: Few-shot learning with dynamic templates
-- **Output Processing**: Regex-based content filtering
-- **Performance Metrics**:
-  ```python
-  METRICS = {
-      'latency_p95': '150ms',
-      'throughput': '100 qps',
-      'success_rate': '99.9%'
-  }
-  ```
+### 1. Multi-Source Data Integration Layer
+- **Heterogeneous Data Ingestion**
+  - Reddit: Real-time meme content acquisition
+  - Giphy: Dynamic GIF content retrieval
+  - Wikipedia: Structured knowledge integration
 
-## Performance Optimization
+- **Data Synchronization Protocol**
+  - Asynchronous content updates
+  - Real-time indexing mechanisms
+  - Cross-platform data normalization
 
-### Caching Strategy
-```python
-CACHE_CONFIG = {
-    'l1_cache': {'type': 'local', 'size': '1GB', 'ttl': '1h'},
-    'l2_cache': {'type': 'redis', 'size': '10GB', 'ttl': '24h'},
-    'l3_cache': {'type': 's3', 'size': 'unlimited', 'ttl': '7d'}
+### 2. Advanced Retrieval Mechanisms
+
+The retrieval system implements a sophisticated multi-stage architecture:
+
+1. **Query Understanding**
+   - Semantic decomposition
+   - Intent classification
+   - Context-aware query expansion
+
+2. **Information Retrieval**
+   - Multi-modal content matching
+   - Relevance scoring frameworks
+   - Dynamic threshold optimization
+
+3. **Context Synthesis**
+   - Adaptive context window selection
+   - Cross-modal information fusion
+   - Temporal relevance weighting
+
+### 3. Generation Framework
+
+The generation pipeline incorporates:
+
+- **Context Integration**
+  - Hierarchical context encoding
+  - Cross-attention mechanisms
+  - Dynamic prompt construction
+
+- **Response Generation**
+  - Template-guided generation
+  - Coherence optimization
+  - Style-constrained decoding
+
+## Theoretical Innovations
+
+### 1. Multi-Modal RAG Architecture
+The system extends traditional RAG frameworks through:
+- Cross-modal retrieval optimization
+- Unified representation learning
+- Dynamic modality weighting
+
+### 2. Context Management
+Advanced context handling through:
+- Adaptive context window sizing
+- Relevance-based content filtering
+- Dynamic information fusion
+
+### 3. Generation Optimization
+Sophisticated generation control via:
+- Context-aware prompt engineering
+- Dynamic temperature scheduling
+- Coherence-optimized decoding
+
+## System Characteristics
+
+### Performance Attributes
+- Real-time response generation
+- Dynamic scaling capabilities
+- Cross-platform compatibility
+
+### Architectural Benefits
+- Modular component design
+- Scalable infrastructure
+- Fault-tolerant operation
+
+## Implementation Framework
+
+### Development Stack
+- Frontend: Streamlit-based interactive interface
+- Backend: Advanced RAG implementation
+- Integration: Multi-API synchronization
+
+### Deployment Architecture
+- Containerized components
+- Microservices architecture
+- Distributed processing
+
+## Usage Paradigm
+
+### 1. Interface Interaction
+- Real-time query processing
+- Dynamic response generation
+- Interactive feedback mechanisms
+
+### 2. System Configuration
+```plaintext
+SYSTEM_CONFIG = {
+    'retrieval': {
+        'sources': ['reddit', 'giphy', 'wikipedia'],
+        'sync_mode': 'real-time',
+        'context_window': 'dynamic'
+    },
+    'generation': {
+        'model': 'gemini-pro',
+        'mode': 'context-aware',
+        'optimization': 'coherence-first'
+    }
 }
 ```
 
-### Load Balancing
-- Round-robin with weighted server selection
-- Health checking with customizable thresholds
-- Automatic failover with zero downtime
+## Future Research Directions
 
-### Connection Pooling
-```python
-POOL_CONFIG = {
-    'redis': {'max_connections': 100, 'timeout': 5},
-    'postgres': {'max_connections': 50, 'timeout': 3},
-    'http': {'max_connections': 200, 'timeout': 10}
-}
-```
+1. **Advanced Retrieval Mechanisms**
+   - Cross-modal retrieval optimization
+   - Dynamic context adaptation
+   - Real-time relevance updating
 
-## Installation
+2. **Generation Enhancements**
+   - Context-aware prompt optimization
+   - Multi-modal response synthesis
+   - Adaptive generation control
 
-### Using Docker
-```bash
-# Build the images
-docker-compose build
+3. **System Optimization**
+   - Real-time performance tuning
+   - Cross-platform synchronization
+   - Scalability enhancements
 
-# Start the services
-docker-compose up -d
-```
+## License and Attribution
 
-### Environment Configuration
-```bash
-# Core Services
-export REDIS_URL=redis://localhost:6379
-export QDRANT_URL=http://localhost:6333
-export KAFKA_BROKERS=localhost:9092
-
-# API Keys
-export REDDIT_CLIENT_ID=your_reddit_client_id
-export REDDIT_CLIENT_SECRET=your_reddit_client_secret
-export GIPHY_API_KEY=your_giphy_api_key
-export GEMINI_API_KEY=your_gemini_api_key
-```
-
-## API Reference
-
-### Query Endpoint
-```python
-@app.post("/api/v1/query")
-async def process_query(
-    query: str,
-    context_size: int = 1024,
-    temperature: float = 0.7,
-    max_tokens: int = 150
-) -> Dict[str, Any]:
-    """
-    Process a user query with custom parameters.
-    
-    Returns:
-        Dict containing response, context, and metadata
-    """
-```
-
-## Monitoring
-
-### Prometheus Metrics
-```python
-METRICS = {
-    'query_latency': Summary('query_processing_seconds', 'Time spent processing query'),
-    'cache_hits': Counter('cache_hits_total', 'Number of cache hits'),
-    'embedding_time': Histogram('embedding_processing_seconds', 'Time spent on embeddings')
-}
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request with:
-   - Comprehensive tests
-   - Documentation updates
-   - Performance benchmarks
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-- Google Gemini for LLM capabilities
-- Reddit and Giphy for content APIs
-- Streamlit for UI framework
+- Google Gemini for advanced language modeling
+- Content platforms for data access
+- Streamlit for interface framework
