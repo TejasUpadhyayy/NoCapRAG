@@ -14,7 +14,7 @@ if "trend_predictor" not in st.session_state:
     st.session_state.trend_predictor = TrendPredictor()
 
 # Streamlit app
-st.title("MemeMind: The Real-Time Meme Oracle 🧠🎭")
+st.title("NoCap RAG ")
 st.write("Ask me anything, and I'll answer with memes and Gen Z wisdom!")
 
 # Sidebar for user preferences
