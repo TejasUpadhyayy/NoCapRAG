@@ -1,4 +1,4 @@
-# MemeMind: The Real-Time Meme Oracle 🧠🎭
+# NoCap RAGd: The Real-Time Meme RAG Chatbot 🧠🎭
 
 MemeMind is a RAG-powered chatbot that fetches memes and pop culture references from online APIs, retrieves relevant information, and generates witty, Gen Z-approved responses using Google Gemini.
 
