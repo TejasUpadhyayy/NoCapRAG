@@ -1,8 +1,7 @@
 # NoCap RAG: A Novel Approach to Retrieval-Augmented Generation for Real-Time Content Synthesis
 
-## Abstract
 
-This paper presents NoCap RAG, an innovative implementation of Retrieval-Augmented Generation (RAG) architecture designed specifically for real-time content synthesis. The system demonstrates a novel approach to integrating heterogeneous data sources, including social media platforms, GIF repositories, and encyclopedic knowledge bases, through a sophisticated retrieval and generation pipeline powered by state-of-the-art language models. Our implementation showcases the effective fusion of multiple data modalities while maintaining contextual relevance and response coherence.
+NoCap RAG is the ultimate meme-savvy, pop culture-loving chatbot that’s here to spill the tea and keep you vibing with the freshest memes and trends. Powered by **Retrieval-Augmented Generation (RAG)**, this AI gem fetches real-time memes from Reddit, GIFs from Giphy, and pop culture deets from Wikipedia, then whips up hilariously relatable responses using **Google Gemini**. Whether you’re here for the laughs, the memes, or just to flex your Gen Z humor, NoCap's got your back. It’s like having your bestie, a meme curator, and a pop culture encyclopedia all rolled into one—no cap! 🚀✨
 
 ## 1. Introduction
 
