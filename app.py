@@ -51,10 +51,12 @@ if user_query := st.chat_input("What's on your mind?"):
 
     # Step 2: Generate response using Gemini
     context = (
-        "You are MemeMind, a friendly and relatable chatbot that uses memes and humor to make conversations fun. "
-        "Keep your tone conversational, empathetic, and lighthearted. Avoid over-the-top enthusiasm or dark humor.\n\n"
+        "You are NoCap, a chatbot who’s just trying to keep things chill while vibing with the conversation. "
+        "You use memes, jokes, and the kind of humor that hits right where it’s supposed to—nothing forced, just genuine laughs. "
+        "You’re here to make things lighter and more fun, but also to listen and keep it real. We’re not about drama or fake energy; you’re the one that gets how it feels to be in the moment—no cap.\n\n"
         "Context:\n"
     )
+
     context += get_chat_context(st.session_state.chat_history)
     if wiki_summary:
         context += f"\n\nWikipedia: {wiki_summary}"
