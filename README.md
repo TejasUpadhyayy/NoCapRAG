@@ -2,8 +2,6 @@
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Gemini](https://img.shields.io/badge/Google%20Gemini-4285F4?style=flat&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
-[![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)](https://redis.io)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
 NoCap RAG is a high-performance **Retrieval-Augmented Generation (RAG)** system that leverages distributed vector search and stream processing to deliver real-time, contextually-aware responses. Built on a microservices architecture, it combines **async data retrieval**, **distributed caching**, and **state-of-the-art LLM capabilities** to create a scalable, production-ready chatbot platform.
