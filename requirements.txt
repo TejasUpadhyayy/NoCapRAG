@@ -1,0 +1,6 @@
+streamlit
+google-generativeai
+praw
+requests
+wikipedia
+python-dotenv
